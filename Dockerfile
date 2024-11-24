@@ -7,11 +7,12 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install the required Python packages
+# Install any required packages
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port 5000 for the Flask app
+# Expose port 5000 for Flask
 EXPOSE 5000
 
-# Command to run the app
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+# Command to run the application
+CMD ["python", "app.py"]
+
